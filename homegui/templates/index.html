@@ -1,0 +1,61 @@
+{% load swallownfilters %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>价值可视化</title>
+  <link rel="stylesheet" href="../../static/layui/css/layui.css">
+</head>
+<body>
+ 
+<!-- 你的HTML代码 -->
+  <div class="layui-fluid">  
+    <div class="layui-row">
+      <div class="layui-col-sm8 layui-col-sm-offset2 layui-bg-gray">
+        <embed src="../../static/img/swallow.svg" width="100" height="100" type="image/svg+xml" pluginspage="http://www.adobe.com/svg/viewer/install/" />
+      </div>
+    </div>
+    <div class="layui-row">
+      <div class="layui-col-sm8 layui-col-sm-offset2">
+        <ul class="layui-nav layui-bg-black" lay-filter="flt-menu">
+          {% for topmenu in menuList|dictsort:"id" %}
+            {% if topmenu|has_key:'subMenu' %}
+              <li class="layui-nav-item">
+                <a href="javascript:;">{{ topmenu.name }}</a>
+                <dl class="layui-nav-child">
+                  {% for item in topmenu.subMenu|dictsort:'id' %}
+                    <dd><a href="javascript:;" opsdata='{"url": "{{ item.url }}", "id": "{{ item.id }}"}'>{{ item.name }}</a></dd>
+                  {% endfor %}
+                </dl>
+              </li>
+            {% else %}
+              <li class="layui-nav-item">
+                <a href="javascript:;" opsdata='{"url": "{{ topmenu.url }}", "id": "{{ topmenu.id }}"}'>{{ topmenu.name }}</a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+   <div class="layui-row">
+     <div class="layui-col-sm8 layui-col-sm-offset2 layui-bg-gray">
+       <img src="../../static/img/tech.png" width="100%"/>
+     </div>
+   </div>
+     
+  </div>
+ 
+<script src="../../static/layui/layui.js"></script>
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer', 'form', 'element'], function(){
+  var layer = layui.layer
+  ,form = layui.form
+  ,element = layui.element;
+  
+  //layer.msg('Hello World');
+});
+</script> 
+</body>
+</html>

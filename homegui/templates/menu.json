@@ -1,0 +1,39 @@
+[
+  {
+    "url": "home",
+    "id": "1",
+    "name": "首页"
+  },
+  {
+    "url": "tech",
+    "id": "2",
+    "name": "技术体系"
+  },
+  {
+    "url": "casesdemo",
+    "id": "3",
+    "name": "案例体验",
+    "subMenu": [
+      {
+        "url": "cases",
+        "id": "31",
+        "name": "合作伙伴"
+      },
+      {
+        "url": "demo",
+        "id": "32",
+        "name": "体验环境"
+      }
+    ]
+  },
+  {
+    "url": "about",
+    "id": "4",
+    "name": "关于我们"
+  },
+  {
+    "url": "recruit",
+    "id": "5",
+    "name": "诚聘英才"
+  }
+]
