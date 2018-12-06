@@ -22,6 +22,41 @@
         {% include 'topheader.html' %}
       </div>
     </div>
+    <div class="layui-row">
+      <div class="layui-col-sm2 swln-div-hiden"></div>
+      <div class="layui-col-sm3 swln-div-white">Top Question</div>
+      <div class="layui-col-sm7 swln-div-white">adf</div>
+    </div>
+    <div class="layui-row">
+      <div class="layui-col-sm2 swln-div-hiden">
+      </div>
+      <div class="layui-col-sm1 swln-div-hiden">
+      </div>
+      <div class="layui-col-sm5">
+        {% for issue in issueList|dictsort:"id" %}
+          <div class="layui-row swln-div-border">
+            <div class="layui-col-sm1 swln-div-white"><p>{{ issue.Vote }}</p></div>
+            <div class="layui-col-sm1 swln-div-white"><p>{{ issue.View }}</p></div>
+            <div class="layui-col-sm1 swln-div-white"><p>{{ issue.Answer }}</p></div>
+            <div class="layui-col-sm9 swln-div-white"><p align="left">{{ issue.IssueTitle }}</p></div>
+            <div class="layui-col-sm1 wln-div-white"><p align="center">投票</p></div>
+            <div class="layui-col-sm1 wln-div-white"><p align="center">浏览</p></div>
+            <div class="layui-col-sm1 wln-div-white"><p align="center">答复</p></div>
+            <div class="layui-col-sm9 wln-div-white"><p align="left">{{ issue.Tags }}</p></div>
+            <div class="layui-col-sm3 layui-col-sm-offset9 wln-div-white"><p align="right">{{ issue.CreateTime }}</p></div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="layui-col-sm2 layui-bg-gray">
+      </div>
+      <div class="layui-col-sm2">
+      </div>
+    </div>
+    <div class="layui-row">
+      <div class="layui-col-sm12 layui-bg-black">
+        {% include 'buttom.html' %}
+      </div>
+    </div>
   </div>     
  
  </body>
