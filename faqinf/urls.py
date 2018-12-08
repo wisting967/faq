@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """homepage URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,8 +19,11 @@ from django.contrib import admin
 from rest_framework import routers
 import views
 
+# router 的作用就是生成API root页面
 router = routers.DefaultRouter()
 router.register(r'issue', views.IssueViewSet)
+
+
 
 urlpatterns = [
     url(r'^', include(router.urls)),

@@ -1,4 +1,4 @@
 migrations
 db.sqlite3
 *.pyc
-*.log
+**/*.log
