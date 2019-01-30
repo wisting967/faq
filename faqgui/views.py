@@ -21,3 +21,8 @@ def index(request):
     context['issueList'] = _res.json()
     logger.info(_res.json())
   return render(request, 'faqindex.html', context)
+
+def new(request):
+  context = {}
+  _session = requests.session()
+  return render(request, 'newfaq.html', context)
