@@ -30,7 +30,7 @@
       <div class="layui-col-sm7 swln-div-white"><a href="/faq/new" class="layui-btn layui-btn-primary">New Question</a></div>
     </div>
     <div class="layui-row">
-      <div class="layui-col-sm2 swln-div-hiden">
+      <div class="layui-col-sm2 swln-div-hiden" id="id_leftTree">
       </div>
       <div class="layui-col-sm1 swln-div-hiden">
       </div>
@@ -56,7 +56,29 @@
         var editor = new E('#editor')
         // 或者 var editor = new E( document.getElementById('editor') )
         editor.create()
-    </script> 
+    </script>
+    <script>
+      layui.use('tree', function(){
+        layui.tree({
+          elem: '#id_leftTree'
+          , nodes: [{
+            name: '父节点'
+            , children: [{
+              name: '子节点11'
+            }, {
+              name: '子节点12'
+            }]
+          }, {
+            name: '父节点2'
+            , children: [{
+              name: '子节点21'
+            }, {
+              name: '子节点22'
+            }]
+          }]
+        });
+      });
+    </script>
  </body>
 </html>
 
