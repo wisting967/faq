@@ -30,7 +30,7 @@
       <div class="layui-col-sm7 swln-div-white"><a href="/faq/new" class="layui-btn layui-btn-primary">New Question</a></div>
     </div>
     <div class="layui-row">
-      <div class="layui-col-sm2 swln-div-hiden" id="id_leftTree">
+      <div class="layui-col-sm2" id="id_leftTree">
       </div>
       <div class="layui-col-sm1 swln-div-hiden">
       </div>
@@ -41,6 +41,8 @@
       <div class="layui-col-sm2 layui-bg-gray">
       </div>
       <div class="layui-col-sm2">
+          <a href="javascript:;" class="layui-btn layui-btn-primary" lay-filter="flt_getHTML" id="id_getHTML">GetHtml</a>
+          <a href="javascript:;" class="layui-btn layui-btn-primary" lay-filter="flt_getText" id="id_getText">GetText</a>  
       </div>
     </div>
     <div class="layui-row">
@@ -51,34 +53,42 @@
   </div>
 
     <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
-    <script type="text/javascript">
-        var E = window.wangEditor
-        var editor = new E('#editor')
-        // 或者 var editor = new E( document.getElementById('editor') )
-        editor.create()
-    </script>
     <script>
-      layui.use('tree', function(){
-        layui.tree({
-          elem: '#id_leftTree'
-          , nodes: [{
-            name: '父节点'
-            , children: [{
-              name: '子节点11'
+        layui.use('tree', function(){
+          $ = layui.jquery;
+  
+          layui.tree({
+            elem: '#id_leftTree'
+            , nodes: [{
+              name: '父节点'
+              , children: [{
+                name: '子节点11'
+              }, {
+                name: '子节点12'
+              }]
             }, {
-              name: '子节点12'
+              name: '父节点2'
+              , children: [{
+                name: '子节点21'
+              }, {
+                name: '子节点22'
+              }]
             }]
-          }, {
-            name: '父节点2'
-            , children: [{
-              name: '子节点21'
-            }, {
-              name: '子节点22'
-            }]
-          }]
+          });
+          var E = window.wangEditor
+          var editor = new E('#editor')
+          // 或者 var editor = new E( document.getElementById('editor') )
+          editor.customConfig.uploadImgShowBase64 = true
+          editor.create()
+          $(document).on('click', '#id_getHTML', function(){
+            alert(editor.txt.html())
+          });
+          $(document).on('click', '#id_getText', function(){
+            alert(editor.txt.text())
+          });
+  
         });
-      });
-    </script>
+      </script>
  </body>
 </html>
 
